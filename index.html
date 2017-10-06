@@ -25,8 +25,8 @@
 		<form action="javascript:void(0);" method="get">
 		</form>
 
-			<a class="twitter-before"><span class="fontawesome-google-plus"></span></a>
-			<button onclick="googleLogin()" class="twitter">Login Using Google</button>
+			<div class="twitter-before"><span class="fontawesome-google-plus"></span></div>
+			<button onclick="" id="googleLogin" class="twitter">Login Using Google</button>
 
 		</p>
 
@@ -44,5 +44,11 @@
 <script src="vendors/jquery/jquery.min.js"></script>
 <script src="js/config.js"></script>
 <script src="js/auth.js"></script>
+
+<script type="text/javascript">
+	
+	document.getElementById("googleLogin").addEventListener("click", googleLogin);
+
+</script>
 
 </html>

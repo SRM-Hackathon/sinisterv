@@ -49,6 +49,7 @@ $("#loader").show();
 firebase.auth().onAuthStateChanged(function(user) {
   if (user) {
     console.log("logged in!!");
+    window.location = "main.html"
   } else {
     console.log("logged out!!");
     $("#login").show();
