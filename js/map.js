@@ -1,19 +1,3 @@
-
-var locations = {
-	bangalore: {
-		coord: [12.9716, 77.5946]
-	},
-	chennai: {
-		coord: [13.0827, 80.2707]
-	},
-	mumbai: {
-		coord: [19.0760, 72.8777]
-	},
-	delhi: {
-		coord: [28.7041, 77.1025]
-	}
-}
-
 var posts = {};
 
 var currLocation = {};
@@ -36,13 +20,11 @@ function showPosition(position) {
     var url = `https://maps.googleapis.com/maps/api/geocode/json?latlng=${currLocation.lat},${currLocation.lng}&key=${API_KEY}`;
 
     $.get(url, (data) => {
-        console.log(data.results[0].address_components[6].long_name);
+        // console.log(data.results[0].address_components[6].long_name);
         currentState = data.results[0].address_components[6].long_name;
+        initMap();
     })
 }
-
-
-console.log(locations);
 
 
 function initMap() {
@@ -52,25 +34,24 @@ function initMap() {
 	if (navigator.geolocation) {
 		navigator.geolocation.getCurrentPosition((position) => {
 
-			userLocation = {
-				lat: position.coords.latitude,
-				lng: position.coords.longitude
-			};
+    		userLocation = {
+    			lat: position.coords.latitude,
+    			lng: position.coords.longitude
+    		};
 
-			var map = new google.maps.Map(document.getElementById("map"), {
-				zoom: 17,
-				center: userLocation,
-				styles: mapStyle
-			});
+    		var map = new google.maps.Map(document.getElementById("map"), {
+    			zoom: 17,
+    			center: userLocation,
+    			styles: mapStyle
+    		});
 
             var tempPost;
 
             firebase.database().ref(currentState + "/").on('child_added', function(data) {
                 tempPost = data.val();
-                tempPost.marker =  new google.maps.Marker({
-                    position: data.val().location,
-                    map: map,
-                });
+
+                // console.log(data.key);
+                // console.log(tempPost);
 
                 var lat = data.val().location.lat;
                 var lng = data.val().location.lng;
@@ -79,44 +60,71 @@ function initMap() {
                     posts[lat + "-" + lng].push(tempPost);
                 }else{
                     posts[lat + "-" + lng] = [tempPost];
+                    new google.maps.Marker({
+                        position: data.val().location,
+                        map: map,
+                    }).addListener("click", function(){
+                        showInfo(lat + "-" + lng, this);
+                    })
                 }
             });
 
-
-			console.log(locations);
-
-			// marker1.setAnimation(google.maps.Animation.BOUNCE) // Bounce
-
-			// var infowindow1 = new google.maps.InfoWindow({
-			//     content: `<iframe width="100%" height="100%" src="https://www.youtube.com/embed/Zxf1mnP5zcw" frameborder="0" allowfullscreen></iframe>`
-			// });
-
-			// var infowindow2 = new google.maps.InfoWindow({
-			//     content: `<a href="#">Link to somewhere else</a>`
-			// });
-
-
-			// marker1.addListener('click', function() {
-			//     infowindow1.open(map, marker1);
-			// });
-
-			// marker2.addListener('click', function() {
-			//     infowindow2.open(map, marker2);
-			// });
+			var infowindow2 = new google.maps.InfoWindow({
+			    content: `<a href="#">Link to somewhere else</a>`
+			});
 
 		});
 	}
 }
 
-// function getCity(success){
-//     var API_KEY = "AIzaSyAwmDkG8MmwilGeUia3DaRMhui-z1nmr78";
-//     var url = `https://maps.googleapis.com/maps/api/geocode/json?latlng=${currLocation.lat},${currLocation.lng}&key=${API_KEY}`;
+function showInfo(geoString, marker){
 
-//     $.get(url, (data) => {
-//         console.log(data.results[0].address_components[6].long_name);
-//         success(data.results[0].address_components[6].long_name);
-//     })
-// }
+    post = posts[geoString];
+
+    var links = "";
+
+    for (item in post){
+        links += `
+        <li><a href="#" onclick="showModal('${post[item].title}', '${post[item].content}')">
+        ${post[item].title}
+        </a></li>
+        `;
+    }
+
+    // console.log(links);
+    // console.log(post);
+
+    var infoWindow = new google.maps.InfoWindow({
+        content: `<ul>${links}</ul>`
+    });
+
+    infoWindow.open(map, marker);
+    
+}
+
+
+function showModal(title, content){
+    var modalHTML = `
+        <div class="modal fade" id="my-modal" tabindex="-1" role="dialog">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title">${title}</h4>
+              </div>
+              <div class="modal-body">
+                <p>${content}</p>
+              </div>
+            </div><!-- /.modal-content -->
+          </div><!-- /.modal-dialog -->
+        </div><!-- /.modal -->
+    `;
+
+    $("#modal-div").html(modalHTML);
+
+    $("#my-modal").modal("show");
+
+}
 
 
 const mapStyle = [

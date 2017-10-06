@@ -1,5 +1,8 @@
 var currLocation = {};
 
+var currentState;
+
+
 if (navigator.geolocation) {
     navigator.geolocation.getCurrentPosition(showPosition);
 } else { 
@@ -11,6 +14,14 @@ function showPosition(position) {
 		lat: position.coords.latitude,
 		lng: position.coords.longitude
 	};
+
+	var API_KEY = "AIzaSyAwmDkG8MmwilGeUia3DaRMhui-z1nmr78";
+    var url = `https://maps.googleapis.com/maps/api/geocode/json?latlng=${currLocation.lat},${currLocation.lng}&key=${API_KEY}`;
+
+    $.get(url, (data) => {
+        console.log(data.results[0].address_components[6].long_name);
+        currentState = data.results[0].address_components[6].long_name;
+    })
 }
 
 function getDate(){
@@ -32,32 +43,28 @@ function getDate(){
 
 function postBlogPost(){
 
-	var uid = firebase.auth().currentUser.uid;
-	var timestamp = Math.floor(Date.now() / 1000);
+	var title = document.querySelector("#blog-title").value;
+	var content = document.querySelector("#blog-content").value;
 
-	var blogData = {
-		title: "test title",
-		content: "test content",
-		date: getDate(),
-		location: currLocation
+	if(title != "" && content != ""){
+		var uid = firebase.auth().currentUser.uid;
+		var timestamp = Math.floor(Date.now() / 1000);
+
+		var blogData = {
+			title: title,
+			content: content,
+			date: getDate(),
+			location: currLocation
+		}
+
+		firebase.database().ref( uid + "/blg" + timestamp + "/").set(blogData);
+		firebase.database().ref( currentState + "/blg" + timestamp + "/").set(blogData);
+
+		console.log(blogData);
+	}else{
+		console.log("Fill in the fields!");
 	}
-
-	firebase.database().ref( uid + "/blg" + timestamp + "/").set(blogData);
-	firebase.database().ref( getCity() + "/blg" + timestamp + "/").set(blogData);
-
-	console.log(blogData);
 }
-
-function getCity(){
-	var API_KEY = "AIzaSyAwmDkG8MmwilGeUia3DaRMhui-z1nmr78";
-	var url = `https://maps.googleapis.com/maps/api/geocode/json?latlng=${currLocation.lat},${currLocation.lng}&key=${API_KEY}`;
-
-	$.get(url, (data) => {
-		console.log(data.results[0].address_components[6].long_name);
-		return data.results[0].address_components[6].long_name;
-	})
-}
-
 
 
 // console.log(getCity() + "/blgefsgggdfgfdg");

@@ -2,26 +2,34 @@
 	<head>
 		<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
 		<link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.indigo-pink.min.css">
-		<link rel="stylesheet" href="styleedit.css">
+		<link rel="stylesheet" href="css/styleedit.css">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<script defer src="https://code.getmdl.io/1.3.0/material.min.js"></script>
-		<title>Editor</title>>
+		<title>Editor</title>
+
+		<link rel="stylesheet" href="vendors/bootstrap/css/bootstrap.min.css">
+
+		<script src="https://www.gstatic.com/firebasejs/4.5.0/firebase.js"></script>
 	</head>
 	<body>
 		<div id="tb1">
   			<form action="#">
   				<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label" >
-    				<input class="mdl-textfield__input" type="text" id="sample3">
-    				<label class="mdl-textfield__label" for="sample3">Title Here</label>
+    				<input class="mdl-textfield__input" type="text" id="blog-title">
+    				<label class="mdl-textfield__label" for="blog-title">Title Here</label>
   				</div>
 			</form>
   		</div>
-  		<div id=ta1>
-			<textarea rows="10" cols="47">	
-			</textarea>
+  		<div id=ta1 class="container">
+			<textarea class="form-control" rows="10" cols="47" id="blog-content" placeholder="Type your content here"></textarea>
 		</div>	
 		<div id=b1>
 			<button class="mdl-button mdl-button--fab mdl-js-button mdl-js-ripple-effect" ><i class="material-icons">send</i></button>
 		</div>
 	</body>
+
+	<script src="vendors/jquery/jquery.min.js"></script>
+	<script src="js/config.js"></script>
+	<script src="js/post.js"></script>
+
 </html>
