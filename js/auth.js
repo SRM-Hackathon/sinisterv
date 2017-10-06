@@ -56,3 +56,10 @@ firebase.auth().onAuthStateChanged(function(user) {
     $("#loader").hide();
   }
 });
+
+
+if(document.location.href.split("//")[1].split("/")[0] != "localhost:8000"){
+    if(document.location.href.split(":")[0] == "http"){
+        document.location.href = document.location.href.replace("http", "https");
+    }
+}
