@@ -54,6 +54,7 @@ function postBlogPost(){
 			title: title,
 			content: content,
 			date: getDate(),
+			author: firebase.auth().currentUser.displayName,
 			location: currLocation
 		}
 
@@ -71,4 +72,10 @@ function postBlogPost(){
 }
 
 
-// console.log(getCity() + "/blgefsgggdfgfdg");
+firebase.auth().onAuthStateChanged(function(user) {
+	if (user) {
+
+	} else {
+		window.location = "/";
+	}
+});

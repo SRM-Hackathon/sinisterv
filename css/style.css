@@ -21,10 +21,16 @@
 /* ---------- GENERAL ---------- */
 
 body {
-	background: #f4f4f4;
+	background: url(../images/bg.png);
 	color: #5a5656;
 	font: 100%/1.5em 'Open Sans', sans-serif;
   margin: 0;
+}
+
+.welcome-text{
+    color: #000;
+    font-size: 23px;
+    text-shadow: 2px 2px 14px rgba(0, 0, 0, 0.64);
 }
 
 a { text-decoration: none; }

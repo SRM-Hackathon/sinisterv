@@ -18,5 +18,24 @@
     width: 100%;
     border-color: rgb(33,150,243);
     border-width: 2px;
+    font-size: 19px !important;
+    height: 59%;
+}
+
+#blog-title{
+    width: 100%;
+    border-color: rgb(33,150,243);
+    border-width: 2px;
+    margin-bottom: 3rem;
+    height: 5rem;
+    font-size: 3rem;
 }
 		
+.mdl-button--fab.mdl-button--colored {
+    background: #555;
+    color: rgb(255,255,255);
+}
+
+body{
+	background-image: url(../images/bg.png);
+}
