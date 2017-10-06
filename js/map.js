@@ -40,7 +40,7 @@ function initMap() {
     		};
 
     		var map = new google.maps.Map(document.getElementById("map"), {
-    			zoom: 17,
+    			zoom: 19,
     			center: userLocation,
     			styles: mapStyle
     		});
@@ -62,6 +62,7 @@ function initMap() {
                     posts[lat + "-" + lng] = [tempPost];
                     new google.maps.Marker({
                         position: data.val().location,
+                        // icon: "images/blog.png",
                         map: map,
                     }).addListener("click", function(){
                         showInfo(lat + "-" + lng, this);
