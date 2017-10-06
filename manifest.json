@@ -1,0 +1,15 @@
+{
+  "short_name": "GeoLog",
+  "name": "GeoLog",
+  "icons": [
+    {
+      "src":"/icon.png",
+      "sizes": "144x144",
+      "type": "image/png"
+    }
+  ],
+  "start_url": "/index.html",
+  "display": "standalone",
+  "orientation": "portrait",
+  "theme_color": "#ad0303"
+}
