@@ -3,39 +3,46 @@
 
 	<meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>Login with Facebook or Twitter</title>
+	<title>Login</title>
 
-	<link rel="stylesheet" href="style.css">
+	<link rel="stylesheet" href="css/style.css">
 	<link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Open+Sans:400,300'>
 
-	<!--[if lt IE 9]>
-		<script src="https://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-	<![endif]-->
+	<script src="https://www.gstatic.com/firebasejs/4.5.0/firebase.js"></script>
 
 </head>
 
 <body>
 
+
+	<div class="mdl-spinner mdl-js-spinner is-active" id="loader"></div>
+
+
 	<div id="login">
 
-		<h1><strong><p align="right>"Welcome.</strong> Please login.</p></h1>
+		<h1><strong><p align="right">Welcome.</strong> Please login.</p></h1>
 
 		<form action="javascript:void(0);" method="get">
 		</form>
 
-			<a class="facebook-before"><span class="fontawesome-facebook"></span></a>
-			<button class="facebook">Login Using Facbook</button>
+			<a class="twitter-before"><span class="fontawesome-google-plus"></span></a>
+			<button onclick="googleLogin()" class="twitter">Login Using Google</button>
 
 		</p>
 
 		<p>
 
-			<a class="twitter-before"><span class="fontawesome-twitter"></span></a>
-			<button class="twitter">Login Using Twitter</button>
+			<a class="facebook-before"><span class="fontawesome-facebook"></span></a>
+			<button onclick="" class="facebook">Login Using Facbook</button>			
 
 		</p>
 
 	</div> <!-- end login -->
 
 </body>
+
+<script src="vendors/jquery/jquery.min.js"></script>
+<script src="js/config.js"></script>
+<script src="js/auth.js"></script>
+
 </html>

@@ -1,0 +1,11 @@
+#map {
+	width: 100%;
+	position: static;
+}
+body{
+	margin: 0;
+}
+#zone-btns{
+  position: absolute;
+  bottom: 5px;
+}

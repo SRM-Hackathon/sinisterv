@@ -43,11 +43,15 @@ function signOut(){
 	firebase.auth().signOut()
 }
 
+$("#login").hide();
+$("#loader").show();
 
 firebase.auth().onAuthStateChanged(function(user) {
   if (user) {
     console.log("logged in!!");
   } else {
     console.log("logged out!!");
+    $("#login").show();
+    $("#loader").hide();
   }
 });
