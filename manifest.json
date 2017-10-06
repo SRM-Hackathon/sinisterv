@@ -3,9 +3,9 @@
   "name": "GeoLog",
   "icons": [
     {
-      "src":"/icon.png",
+      "src":"images/Logo.jpg",
       "sizes": "144x144",
-      "type": "image/png"
+      "type": "image/jpg"
     }
   ],
   "start_url": "/index.html",
