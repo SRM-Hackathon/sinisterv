@@ -85,7 +85,7 @@ function showInfo(geoString, marker){
 
     for (item in post){
         links += `
-        <li><a href="#" onclick="showModal('${post[item].title}', '${post[item].content}')">
+        <li><a href="#" onclick="showModal('${geoString}', ${item})">
         ${post[item].title}
         </a></li>
         `;
@@ -103,17 +103,17 @@ function showInfo(geoString, marker){
 }
 
 
-function showModal(title, content){
+function showModal(geoString, item){
     var modalHTML = `
         <div class="modal fade" id="my-modal" tabindex="-1" role="dialog">
-          <div class="modal-dialog" role="document">
+          <div class="modal-dialog" role="document" id="modal-frame">
             <div class="modal-content">
               <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                <h4 class="modal-title">${title}</h4>
+                <h4 class="modal-title">${posts[geoString][item].title}</h4>
               </div>
               <div class="modal-body">
-                <p>${content}</p>
+                <p>${posts[geoString][item].content}</p>
               </div>
             </div><!-- /.modal-content -->
           </div><!-- /.modal-dialog -->

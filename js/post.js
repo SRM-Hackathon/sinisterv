@@ -61,6 +61,10 @@ function postBlogPost(){
 		firebase.database().ref( currentState + "/blg" + timestamp + "/").set(blogData);
 
 		console.log(blogData);
+
+		document.querySelector("#blog-title").value = "";
+		document.querySelector("#blog-content").value = "";
+
 	}else{
 		console.log("Fill in the fields!");
 	}
