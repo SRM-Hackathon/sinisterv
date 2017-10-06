@@ -44,11 +44,8 @@ strong {
 /* ---------- LOGIN ---------- */
 
 #login {
-	margin: 50px auto;
+	margin: 16rem auto;
 	width: 300px;
-	padding: 14rem 0;
-    text-align: center;
-
 }
 
 form fieldset input[type="text"], input[type="password"] {
