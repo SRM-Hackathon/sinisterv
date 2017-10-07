@@ -4,6 +4,8 @@ var currLocation = {};
 
 var currentState;
 
+var map;
+
 if (navigator.geolocation) {
     navigator.geolocation.getCurrentPosition(showPosition);
 } else { 
@@ -39,7 +41,7 @@ function initMap() {
     			lng: position.coords.longitude
     		};
 
-    		var map = new google.maps.Map(document.getElementById("map"), {
+    		map = new google.maps.Map(document.getElementById("map"), {
     			zoom: 19,
     			center: userLocation,
     			styles: mapStyle
@@ -111,10 +113,11 @@ function showModal(geoString, item){
             <div class="modal-content">
               <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                <h4 class="modal-title">${posts[geoString][item].title}</h4>
+                <h3 class="modal-title">${posts[geoString][item].title}</h3>
               </div>
               <div class="modal-body">
-                <p>${posts[geoString][item].content}</p>
+                ${posts[geoString][item].author}
+                <p id="blog-modal-content">${posts[geoString][item].content}</p>
               </div>
             </div><!-- /.modal-content -->
           </div><!-- /.modal-dialog -->
@@ -124,7 +127,6 @@ function showModal(geoString, item){
     $("#modal-div").html(modalHTML);
 
     $("#my-modal").modal("show");
-
 }
 
 
@@ -133,6 +135,8 @@ if(document.location.href.split("//")[1].split("/")[0] != "localhost:8000"){
         document.location.href = document.location.href.replace("http", "https");
     }
 }
+
+
 
 
 const mapStyle = [

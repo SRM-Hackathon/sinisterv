@@ -2,6 +2,8 @@ var currLocation = {};
 
 var currentState;
 
+var postState;
+
 
 if (navigator.geolocation) {
     navigator.geolocation.getCurrentPosition(showPosition);
@@ -44,7 +46,18 @@ function getDate(){
 function postBlogPost(){
 
 	var title = document.querySelector("#blog-title").value;
-	var content = document.querySelector("#blog-content").value;
+
+	if(postState == "text"){
+		var content = document.querySelector("#blog-content").value;
+	}else{
+
+		var videoURL = document.querySelector("#blog-video").value.replace("watch?v=", "embed/")
+
+		var content = `
+			<iframe width="560" height="315" src="${videoURL}" 
+			frameborder="0" allowfullscreen></iframe>
+		`;
+	}
 
 	if(title != "" && content != ""){
 		var uid = firebase.auth().currentUser.uid;
@@ -65,12 +78,31 @@ function postBlogPost(){
 
 		document.querySelector("#blog-title").value = "";
 		document.querySelector("#blog-content").value = "";
+		document.querySelector("#blog-video").value = "";
+
+		// window.location = "main.html"
 
 	}else{
 		console.log("Fill in the fields!");
 	}
 }
 
+
+function postVideo(){
+	$("#blog-content").hide();
+	$("#post-text-button").show();
+	$("#post-video-button").hide();
+	$("#blog-video").show();
+	postState = "video";
+}
+
+function postText(){
+	$("#blog-content").show();
+	$("#post-text-button").hide();
+	$("#post-video-button").show();
+	$("#blog-video").hide();
+	postState = "text";
+}
 
 firebase.auth().onAuthStateChanged(function(user) {
 	if (user) {
@@ -85,3 +117,5 @@ if(document.location.href.split("//")[1].split("/")[0] != "localhost:8000"){
         document.location.href = document.location.href.replace("http", "https");
     }
 }
+
+postText();

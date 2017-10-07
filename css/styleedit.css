@@ -19,7 +19,7 @@
     border-color: #333;
     border-width: 2px;
     font-size: 19px !important;
-    height: 59%;
+    height: 54%;
     color: #fff;
 	background: rgba(0,0,0,.5); 
     font-weight: 900;
@@ -32,6 +32,18 @@
     margin-bottom: 3rem;
     height: 5rem;
     font-size: 3rem;
+    color: #fff;
+    background: rgba(0,0,0,.5);
+    font-weight: 900;
+}
+
+#blog-video{
+    width: 100%;
+    border-color: #333;
+    border-width: 2px;
+    margin-bottom: 3rem;
+    height: 5rem;
+    font-size: 2rem;
     color: #fff;
     background: rgba(0,0,0,.5);
     font-weight: 900;
@@ -53,4 +65,9 @@ body{
     font-size: 34px;
     text-shadow: 2px 2px 2px #000;
     color: #333;
+}
+
+.video-btn{
+    background: rgb(85, 85, 85) !important;
+    color: rgb(255,255,255);
 }

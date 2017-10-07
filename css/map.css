@@ -14,3 +14,8 @@ body{
     background: #555555;
     color: rgb(255,255,255);
 }
+
+#blog-modal-content{
+	font-size: 3rem;
+    margin-top: 10px;
+}
