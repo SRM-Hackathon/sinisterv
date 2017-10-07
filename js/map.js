@@ -49,7 +49,7 @@ function initMap() {
 
             var tempPost;
 
-            firebase.database().ref(currentState + "/").on('child_added', function(data) {
+            firebase.database().ref("all" + "/").on('child_added', function(data) {
                 tempPost = data.val();
 
                 // console.log(data.key);

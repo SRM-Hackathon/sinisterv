@@ -74,6 +74,7 @@ function postBlogPost(){
 
 		firebase.database().ref( uid + "/blg" + timestamp + "/").set(blogData);
 		firebase.database().ref( currentState + "/blg" + timestamp + "/").set(blogData);
+		firebase.database().ref( "all/blg" + timestamp + "/").set(blogData);
 
 		console.log(blogData);
 
