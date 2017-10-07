@@ -31,7 +31,7 @@ function showPosition(position) {
 
 function initMap() {
 
-	document.querySelector("#map").style.height = window.innerHeight + "px";
+	document.querySelector("#map").style.height = window.innerHeight - 7 + "px";
 
 	if (navigator.geolocation) {
 		navigator.geolocation.getCurrentPosition((position) => {
