@@ -80,3 +80,12 @@
 .card-profile .card-links .fa.fa-facebook:hover {
     color: #2d4474;
 }
+
+.back-btn{
+    margin-left: 1rem;
+    margin-top: 1rem;
+    font-size: 34px;
+    text-shadow: 2px 2px 2px #000;
+    color: #333;
+    position: absolute;
+}

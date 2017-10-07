@@ -1,6 +1,6 @@
 #tb1
 	{
-		margin-top: 7rem;
+		margin-top: 2rem;
 		padding: 2rem;		
 	}
 #ta1
@@ -16,19 +16,25 @@
 
 #blog-content{
     width: 100%;
-    border-color: rgb(33,150,243);
+    border-color: #333;
     border-width: 2px;
     font-size: 19px !important;
     height: 59%;
+    color: #fff;
+	background: rgba(0,0,0,.5); 
+    font-weight: 900;
 }
 
 #blog-title{
     width: 100%;
-    border-color: rgb(33,150,243);
+    border-color: #333;
     border-width: 2px;
     margin-bottom: 3rem;
     height: 5rem;
     font-size: 3rem;
+    color: #fff;
+    background: rgba(0,0,0,.5);
+    font-weight: 900;
 }
 		
 .mdl-button--fab.mdl-button--colored {
@@ -38,4 +44,13 @@
 
 body{
 	background-image: url(../images/bg.png);
+	overflow: hidden;
+}
+
+.back-btn{
+	margin-left: 1rem;
+    margin-top: 1rem;
+    font-size: 34px;
+    text-shadow: 2px 2px 2px #000;
+    color: #333;
 }
