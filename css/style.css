@@ -21,16 +21,18 @@
 /* ---------- GENERAL ---------- */
 
 body {
-	background: url(../images/bg.png);
-	color: #5a5656;
-	font: 100%/1.5em 'Open Sans', sans-serif;
-  margin: 0;
+    background: url(../images/bg.png);
+    color: #5a5656;
+    font: 100%/1.5em 'Open Sans', sans-serif;
+    margin: 0;
+    background-size: contain;
+    background-repeat: no-repeat;
+    overflow: hidden;
 }
 
 .welcome-text{
     color: #000;
     font-size: 23px;
-    text-shadow: 2px 2px 14px rgba(0, 0, 0, 0.64);
 }
 
 a { text-decoration: none; }
@@ -50,8 +52,8 @@ strong {
 /* ---------- LOGIN ---------- */
 
 #login {
-	margin: 16rem auto;
-	width: 300px;
+    margin: 11rem auto;;
+    width: 300px;
 }
 
 form fieldset input[type="text"], input[type="password"] {
@@ -147,4 +149,18 @@ form fieldset a:hover { text-decoration: underline; }
 	height: 50px;
 	text-transform: uppercase;
 	width: 250px;
+}
+
+.logo{
+    border-radius: 50%;
+    width: 140px;
+    margin-top: 10rem;
+    box-shadow: 1px 4px 7px #000;
+}
+
+.main-title{
+	color: #fff;
+    font-size: 4rem;
+    text-align: center;
+    text-shadow: 3px 3px 6px #000;
 }

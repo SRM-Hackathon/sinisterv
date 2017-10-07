@@ -90,14 +90,14 @@ function showInfo(geoString, marker){
             <span class="mdl-chip mdl-chip--contact mdl-chip--deletable">
                 <a href="#" onclick="showModal('${geoString}', ${item})">
                     <img class="mdl-chip__contact" src="${post[item].photoURL}"></img>
-                    <span class="mdl-chip__text">${post[item].title}</span>
+                    <span class="mdl-chip__text">${post[item].author}</span>
                 </a>
             </span>
         `;
     }
 
     var infoWindow = new google.maps.InfoWindow({
-        content: `<ul>${links}</ul>`
+        content: `<div>${links}</div>`
     });
 
     infoWindow.open(map, marker);
@@ -139,6 +139,18 @@ if(document.location.href.split("//")[1].split("/")[0] != "localhost:8000"){
 }
 
 
+firebase.auth().onAuthStateChanged(function(user) {
+  if (user) {
+    
+  } else {
+    window.location = "/";
+  }
+});
+
+
+function signOut(){
+  firebase.auth().signOut()
+}
 
 
 const mapStyle = [

@@ -11,6 +11,9 @@
     <link rel="apple-touch-icon" sizes="180x180" href="./assets/icons/icon.png">
 	<link rel="icon" type="image/png" href="images/Logo.jpg" sizes="32x32">
     <link rel="icon" type="image/png" href="images/Logo.jpg" sizes="16x16">
+
+    <link rel="stylesheet" href="vendors/bootstrap/css/bootstrap.min.css">
+
     <link rel="manifest" href="./manifest.json">
 
 	<script src="https://www.gstatic.com/firebasejs/4.5.0/firebase.js"></script>
@@ -20,12 +23,18 @@
 <body>
 
 
+	<img class="img-responsive logo" id="main-logo" src="images/Logo.jpg" />
+	<p class="main-title">GoLoG</p>
+
+
 	<div class="mdl-spinner mdl-js-spinner is-active" id="loader"></div>
 
 
 	<div id="login">
 
-		<h1 class="welcome-text"><strong><p align="right">Welcome.</strong> Please login.</p></h1>
+		<center>
+		<h1 class="welcome-text"><strong><p>Welcome.</strong><br> Please login.</p></h1>
+		</center>
 
 		<form action="javascript:void(0);" method="get">
 		</form>
@@ -47,5 +56,13 @@
 <script src="vendors/jquery/jquery.min.js"></script>
 <script src="js/config.js"></script>
 <script src="js/auth.js"></script>
+
+
+<script type="text/javascript">
+	
+	document.querySelector("#main-logo").style.marginLeft = ((window.innerWidth/2) - 70) + "px";
+
+</script>
+
 
 </html>

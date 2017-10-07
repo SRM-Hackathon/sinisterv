@@ -1,7 +1,7 @@
 <html>
 	<head>
 		<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-		<link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.blue-red.min.css" />
+	    <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.grey-pink.min.css" />
 		<link rel="stylesheet" href="css/styleedit.css">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<script defer src="https://code.getmdl.io/1.3.0/material.min.js"></script>
@@ -13,29 +13,45 @@
 	</head>
 	<body>
 
-		<a href="main.html"><i class="material-icons back-btn">arrow_back</i></a>
 
-		<center>
-			<button id="post-video-button" onclick="postVideo()" class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored video-btn">
-				<i class="material-icons">videocam</i>
-			</button>
-			<button id="post-text-button" onclick="postText()" class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored video-btn">
-				<i class="material-icons">text_format</i>
-			</button>
-		</center>
+		<div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
+		  <header class="mdl-layout__header">
+		    <div class="mdl-layout__header-row">
+		      <!-- Title -->
+		      <a href="main.html"><i class="material-icons back-btn">arrow_back</i></a>
+		      <span class="mdl-layout-title">GoLoG</span>
+		    </div>
+		  </header>
+		  <main class="mdl-layout__content">
+		    <div class="page-content">
+		    	
+		    	<center>
+					<button id="post-video-button" onclick="postVideo()" class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored video-btn">
+						<i class="material-icons">videocam</i>
+					</button>
+					<button id="post-text-button" onclick="postText()" class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored video-btn">
+						<i class="material-icons">text_format</i>
+					</button>
+				</center>
 
-		<div id="tb1" class="container">
-			<input type="text" id="blog-title" class="form-control" placeholder="Type your title here">
-  		</div>
-  		<div id=ta1 class="container">
-			<textarea class="form-control" rows="10" cols="47" id="blog-content" placeholder="Type your content here"></textarea>
+				<div id="tb1" class="container">
+					<input type="text" id="blog-title" class="form-control" placeholder="Type your title here">
+		  		</div>
+		  		<div id=ta1 class="container">
+					<textarea class="form-control" rows="10" cols="47" id="blog-content" placeholder="Type your content here"></textarea>
 
-			<input type="text" id="blog-video" class="form-control" placeholder="Youtube url">
-		</div>	
-		<div id=b1>
+					<input type="text" id="blog-video" class="form-control" placeholder="Youtube url">
+				</div>	
+				<div id=b1>
 
-			<button onclick="postBlogPost()" class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored danger" ><i class="material-icons">send</i></button>
+					<button onclick="postBlogPost()" class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored danger" ><i class="material-icons">send</i></button>
+				</div>
+
+		    </div>
+		  </main>
 		</div>
+
+		
 	</body>
 
 	<script src="vendors/jquery/jquery.min.js"></script>

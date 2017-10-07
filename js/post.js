@@ -54,7 +54,7 @@ function postBlogPost(){
 		var videoURL = document.querySelector("#blog-video").value.replace("watch?v=", "embed/")
 
 		var content = `
-			<iframe width="560" height="315" src="${videoURL}" 
+			<iframe width="100%" height="100%" src="${videoURL}" 
 			frameborder="0" allowfullscreen></iframe>
 		`;
 	}
