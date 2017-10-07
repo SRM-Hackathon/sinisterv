@@ -18,7 +18,7 @@ function getFeed(){
 	                            <img src="${data.val().photoURL}" alt="Contact Person">
 	                            ${data.val().author}
 	                        </div>
-	                        <span class="card-title">Card Title</span>
+	                        <span class="card-title">${data.val().title}</span>
 	                        <p class="card-post-body">${data.val().content}</p>
 	                    </div>
 	                    <div class="card-action">
