@@ -68,6 +68,7 @@ function postBlogPost(){
 			content: content,
 			date: getDate(),
 			author: firebase.auth().currentUser.displayName,
+			photoURL: firebase.auth().currentUser.photoURL,
 			location: currLocation
 		}
 
@@ -79,6 +80,8 @@ function postBlogPost(){
 		document.querySelector("#blog-title").value = "";
 		document.querySelector("#blog-content").value = "";
 		document.querySelector("#blog-video").value = "";
+
+		showToast("Your beautiful content has been uploaded!");
 
 		// window.location = "main.html"
 
@@ -102,6 +105,11 @@ function postText(){
 	$("#post-video-button").show();
 	$("#blog-video").hide();
 	postState = "text";
+}
+
+
+function showToast(message){
+	document.querySelector('#demo-toast-example').MaterialSnackbar.showSnackbar({message: message})
 }
 
 firebase.auth().onAuthStateChanged(function(user) {

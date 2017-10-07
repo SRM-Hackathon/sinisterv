@@ -86,11 +86,21 @@ function showInfo(geoString, marker){
 
     var links = "";
 
+    // for (item in post){
+    //     links += `
+    //     <li><a href="#" onclick="showModal('${geoString}', ${item})">
+    //     ${post[item].title}
+    //     </a></li>
+    //     `;
+    // }
+
+
     for (item in post){
         links += `
-        <li><a href="#" onclick="showModal('${geoString}', ${item})">
-        ${post[item].title}
-        </a></li>
+            <span class="mdl-chip mdl-chip--contact mdl-chip--deletable">
+                <img class="mdl-chip__contact" src="${post[item].photoURL}"></img>
+                <span class="mdl-chip__text">${post[item].title}</span>
+            </span>
         `;
     }
 
