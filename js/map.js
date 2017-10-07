@@ -98,8 +98,10 @@ function showInfo(geoString, marker){
     for (item in post){
         links += `
             <span class="mdl-chip mdl-chip--contact mdl-chip--deletable">
-                <img class="mdl-chip__contact" src="${post[item].photoURL}"></img>
-                <span class="mdl-chip__text">${post[item].title}</span>
+                <a href="#" onclick="showModal('${geoString}', ${item})">
+                    <img class="mdl-chip__contact" src="${post[item].photoURL}"></img>
+                    <span class="mdl-chip__text">${post[item].title}</span>
+                </a>
             </span>
         `;
     }
