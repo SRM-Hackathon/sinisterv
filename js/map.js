@@ -58,6 +58,9 @@ function initMap() {
                 var lat = data.val().location.lat;
                 var lng = data.val().location.lng;
 
+                // showToast(data.val().author + " has uploaded new exiciting things!");
+
+
                 if(posts.hasOwnProperty(lat + "-" + lng)){
                     posts[lat + "-" + lng].push(tempPost);
                 }else{
@@ -72,10 +75,6 @@ function initMap() {
                 }
             });
 
-			var infowindow2 = new google.maps.InfoWindow({
-			    content: `<a href="#">Link to somewhere else</a>`
-			});
-
 		});
 	}
 }
@@ -85,15 +84,6 @@ function showInfo(geoString, marker){
     post = posts[geoString];
 
     var links = "";
-
-    // for (item in post){
-    //     links += `
-    //     <li><a href="#" onclick="showModal('${geoString}', ${item})">
-    //     ${post[item].title}
-    //     </a></li>
-    //     `;
-    // }
-
 
     for (item in post){
         links += `
@@ -105,9 +95,6 @@ function showInfo(geoString, marker){
             </span>
         `;
     }
-
-    // console.log(links);
-    // console.log(post);
 
     var infoWindow = new google.maps.InfoWindow({
         content: `<ul>${links}</ul>`
@@ -141,6 +128,9 @@ function showModal(geoString, item){
     $("#my-modal").modal("show");
 }
 
+function showToast(message){
+    document.querySelector('#demo-toast-example').MaterialSnackbar.showSnackbar({message: message})
+}
 
 if(document.location.href.split("//")[1].split("/")[0] != "localhost:8000"){
     if(document.location.href.split(":")[0] == "http"){
